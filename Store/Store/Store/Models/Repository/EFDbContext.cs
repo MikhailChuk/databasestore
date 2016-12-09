@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
 
-namespace Store.Models
+namespace Store.Models.Repository
 {
-    public class EFDbContext
+    public class EFDbContext : DbContext
     {
+        public DbSet<Gadget> Gadgets { get; set; }
     }
 }
