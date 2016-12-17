@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>GameStore</title>
+    <title>Store</title>
     <link rel="stylesheet" href="/Content/Styles.css" />
 </head>
 <body>
