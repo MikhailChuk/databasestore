@@ -19,7 +19,16 @@ namespace Store.Pages
             get
             {
                 int page;
-                return int.TryParse(Request.QueryString["page"], out page) ? page : 1;
+                page = int.TryParse(Request.QueryString["page"], out page) ? page : 1;
+                return page > MaxPage ? MaxPage : page;
+            }
+        }
+
+        protected int MaxPage
+        {
+            get
+            {
+                return (int)Math.Ceiling((decimal)repository.Gadgets.Count() / pageSize);
             }
         }
 
