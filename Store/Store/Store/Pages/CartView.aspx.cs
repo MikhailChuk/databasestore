@@ -60,4 +60,6 @@ namespace Store.Pages
                 return RouteTable.Routes.GetVirtualPath(null, "checkout",
                     null).VirtualPath;
             }
+        }
+    }
 }

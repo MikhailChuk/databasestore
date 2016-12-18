@@ -19,7 +19,7 @@ namespace Store.Models.Repository
             get
             {
                 return context.Orders
-                    .Include(o => o.OrderLines.Select(ol => ol.Gadgets));
+                    .Include(o => o.OrderLines.Select(ol => ol.Gadget));
             }
         }
 
