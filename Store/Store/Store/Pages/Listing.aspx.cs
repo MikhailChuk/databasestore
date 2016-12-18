@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Store.Pages.Helpers;
+using System.Web.Routing;
 
 namespace Store.Pages
 {
@@ -41,7 +43,7 @@ namespace Store.Pages
             return reqValue != null && int.TryParse(reqValue, out page) ? page : 1;
         }
 
-        protected IEnumerable<Gadget> GetGadgets()
+        public IEnumerable<Gadget> GetGadgets()
         {
             return FilterGadgets()
                 .OrderBy(g => g.GadgetId)
@@ -60,7 +62,26 @@ namespace Store.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack)
+            {
+                int selectedGadgetId;
+                if (int.TryParse(Request.Form["add"], out selectedGadgetId))
+                {
+                    Gadget selectedGadget = repository.Gadgets
+                        .Where(g => g.GadgetId == selectedGadgetId).FirstOrDefault();
 
+                    if (selectedGadget != null)
+                    {
+                        SessionHelper.GetCart(Session).AddItem(selectedGadget, 1);
+                        SessionHelper.Set(Session, SessionKey.RETURN_URL,
+                            Request.RawUrl);
+
+                        Response.Redirect(RouteTable.Routes
+                            .GetVirtualPath(null, "cart", null).VirtualPath);
+                    }
+                }
+
+            }
         }
     }
 }

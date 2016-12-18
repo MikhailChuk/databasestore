@@ -177,6 +177,7 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Controls\CategoryList.ascx" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\CartView.aspx" />
     <Content Include="Pages\Listing.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -257,6 +258,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Pages\CartView.aspx.cs">
+      <DependentUpon>CartView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CartView.aspx.designer.cs">
+      <DependentUpon>CartView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Listing.aspx.cs">
       <DependentUpon>Listing.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -267,6 +275,7 @@
     <Compile Include="Models\Repository\EFDbContext.cs" />
     <Compile Include="Models\Gadget.cs" />
     <Compile Include="Models\Repository\Repository.cs" />
+    <Compile Include="Pages\Helpers\SessionHelper.cs" />
     <Compile Include="Pages\Store.Master.cs">
       <DependentUpon>Store.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
