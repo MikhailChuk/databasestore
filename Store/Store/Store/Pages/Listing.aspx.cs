@@ -28,7 +28,8 @@ namespace Store.Pages
         {
             get
             {
-                return (int)Math.Ceiling((decimal)repository.Gadgets.Count() / pageSize);
+                int prodCount = FilterGadgets().Count();
+                return (int)Math.Ceiling((decimal)prodCount / pageSize);
             }
         }
 
@@ -42,10 +43,19 @@ namespace Store.Pages
 
         protected IEnumerable<Gadget> GetGadgets()
         {
-            return repository.Gadgets
+            return FilterGadgets()
                 .OrderBy(g => g.GadgetId)
                 .Skip((CurrentPage - 1) * pageSize)
                 .Take(pageSize);
+        }
+
+        private IEnumerable<Gadget> FilterGadgets()
+        {
+            IEnumerable<Gadget> gadget = repository.Gadgets;
+            string currentCategory = (string)RouteData.Values["category"] ??
+                Request.QueryString["category"];
+            return currentCategory == null ? gadget :
+                gadget.Where(p => p.Category == currentCategory);
         }
 
         protected void Page_Load(object sender, EventArgs e)
