@@ -179,6 +179,7 @@
     <Content Include="Controls\CategoryList.ascx" />
     <Content Include="Global.asax" />
     <Content Include="Pages\CartView.aspx" />
+    <Content Include="Pages\Checkout.aspx" />
     <Content Include="Pages\Listing.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -273,6 +274,13 @@
     </Compile>
     <Compile Include="Pages\CartView.aspx.designer.cs">
       <DependentUpon>CartView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Listing.aspx.cs">
       <DependentUpon>Listing.aspx</DependentUpon>
