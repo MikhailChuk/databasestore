@@ -11,8 +11,11 @@
                             <h3>{0}</h3>
                             {1}
                             <h4>{2:c}</h4>
+             <button name='add' type='submit' value='{3}'>
+                                Добавить в корзину
+                            </button>
                         </div>",
-                    gadget.Name, gadget.Description, gadget.Price));
+                    gadget.Name, gadget.Description, gadget.Price, gadget.GadgetId));
             }
         %>
     </div>
