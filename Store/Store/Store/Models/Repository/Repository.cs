@@ -13,7 +13,6 @@ namespace Store.Models.Repository
             get { return context.Gadgets; }
         }
 
-        // Чтение данных из таблицы Orders
         public IEnumerable<Order> Orders
         {
             get
@@ -23,7 +22,6 @@ namespace Store.Models.Repository
             }
         }
 
-        // Сохранить данные заказа в базе данных
         public void SaveOrder(Order order)
         {
             if (order.OrderId == 0)
