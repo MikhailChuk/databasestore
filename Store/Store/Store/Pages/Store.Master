@@ -12,7 +12,7 @@
         <div>
             <div id="header">
                  <S:CartSummary runat="server" />
-                <div class="title">Store - магазин гаджетов</div>
+                <div class="title">Магазин гаджетов</div>
             </div>
             <div id="categories">
                 <S:CategoryLinks runat="server" />
