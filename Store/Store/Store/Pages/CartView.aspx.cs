@@ -53,5 +53,11 @@ namespace Store.Pages
                 return SessionHelper.Get<string>(Session, SessionKey.RETURN_URL);
             }
         }
-    }
+        public string CheckoutUrl
+        {
+            get
+            {
+                return RouteTable.Routes.GetVirtualPath(null, "checkout",
+                    null).VirtualPath;
+            }
 }
